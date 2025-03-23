@@ -15,8 +15,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.centennial.lab3.R
-import com.centennial.lab3.data.ProductEntity
+
 import com.centennial.lab3.viewmodel.ProductViewModel
+import com.google.android.engage.food.datamodel.ProductEntity
 import java.util.Date
 
 @Composable

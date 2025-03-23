@@ -1,8 +1,8 @@
 package com.centennial.lab3.viewmodel
 
 import androidx.lifecycle.*
-import com.centennial.lab3.data.ProductEntity
 import com.centennial.lab3.data.ProductRepository
+import com.google.android.engage.food.datamodel.ProductEntity
 import kotlinx.coroutines.launch
 
 class ProductViewModel(private val repository: ProductRepository)
