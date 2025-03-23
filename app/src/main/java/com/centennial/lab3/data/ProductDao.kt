@@ -1,9 +1,6 @@
-@file:Suppress("AndroidUnresolvedRoomSqlReference")
-
 package com.centennial.lab3.data
 
 import androidx.room.*
-import com.google.android.engage.food.datamodel.ProductEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

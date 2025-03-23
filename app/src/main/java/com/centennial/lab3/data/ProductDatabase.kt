@@ -3,7 +3,6 @@ package com.centennial.lab3.data
 import android.content.Context
 import androidx.room.*
 import androidx.room.Room
-import com.google.android.engage.food.datamodel.ProductEntity
 import java.util.*
 
 @Database(entities = [ProductEntity::class], version = 1, exportSchema = true)

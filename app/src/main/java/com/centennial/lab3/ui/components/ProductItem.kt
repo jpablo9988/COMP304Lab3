@@ -13,11 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-
-import com.google.android.engage.food.datamodel.ProductEntity
-
-private val ProductEntity.category: String
-    get() {}
+import com.centennial.lab3.data.ProductEntity
 
 @Composable
 fun ProductItem(

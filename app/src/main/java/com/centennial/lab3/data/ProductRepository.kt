@@ -1,6 +1,5 @@
 package com.centennial.lab3.data
 
-import com.google.android.engage.food.datamodel.ProductEntity
 import kotlinx.coroutines.flow.Flow
 
 class ProductRepository(private val productDao: ProductDao) {
