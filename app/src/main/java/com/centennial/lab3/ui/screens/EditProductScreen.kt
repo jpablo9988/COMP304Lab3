@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
@@ -84,13 +86,25 @@ fun EditProductScreen(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Favorite:")
             Switch(
                 checked = isFavorite,
-                onCheckedChange = { isFavorite = it }
+                onCheckedChange = {
+                    isFavorite = it
+                },
+                thumbContent = if (isFavorite) {
+                    {
+                        Icon(
+                            imageVector = Icons.Filled.Favorite,
+                            contentDescription = "An image of a black heart",
+                            modifier = Modifier.size(SwitchDefaults.IconSize),
+                        )
+                    }
+                } else {
+                    null
+                }
             )
-        }
 
+        }
         // Save Button
         Button(
             onClick = {

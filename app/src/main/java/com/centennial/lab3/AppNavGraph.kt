@@ -58,17 +58,12 @@ fun AppNavGraph(navController: NavHostController,
                             )
                         }
                     }
-                    IconButton(onClick = { navController.navigateUp() }) {
-                        Icon(
-                            imageVector = Icons.Filled.Favorite,
-                            contentDescription = stringResource(R.string.back_button)
-                        )
-                    }
                 }
             )
         }
         ,
         floatingActionButton = {
+
             FloatingActionButton(
                 onClick = {
                     navController.navigate("add_product")
@@ -92,6 +87,13 @@ fun AppNavGraph(navController: NavHostController,
                 HomeScreen(
                     navController = navController,
                     viewModel = viewModel
+                )
+            }
+            composable("home/faves") {
+                HomeScreen(
+                    navController = navController,
+                    viewModel = viewModel,
+                    showFavorites = true
                 )
             }
             // Add Product Screen - Allows user to add new products
