@@ -1,26 +1,40 @@
 package com.centennial.lab3.ui.screens
 
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.centennial.lab3.ui.components.ProductItem
 import com.centennial.lab3.viewmodel.ProductViewModel
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
+
 
 @Composable
-fun HomeScreen(viewModel: ProductViewModel = hiltViewModel(), navController: NavHostController) {
+fun HomeScreen(viewModel: ProductViewModel,
+               navController: NavHostController) {
     val products by viewModel.allProducts.observeAsState(emptyList())
-
-    LazyColumn {
+    Column(modifier = Modifier.padding(16.dp)) {
+        Text("List of Products: ", style = typography.bodyLarge)
+        LazyColumn {
         items(products) { product ->
             ProductItem(
-                product, onEdit = { /* Navigate to edit screen */ },
-                onFavoriteToggle = TODO(),
-                onEditClick = TODO()
+                product,
+                onFavoriteToggle = {
+                    product.isFavorite = true;
+                    viewModel.update(product);
+                },
+                onEditClick = {
+                    element : String ->
+                        navController.navigate("edit_product/$element")
+                }
             )
         }
     }
+}
 }

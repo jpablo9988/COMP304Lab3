@@ -5,16 +5,16 @@ import androidx.room.*
 import androidx.room.Room
 import java.util.*
 
-@Database(entities = [Product::class], version = 1, exportSchema = false)
+@Database(entities = [ProductEntity::class], version = 1, exportSchema = true)
 @TypeConverters(DateConverter::class) // To store Date objects in SQLite
 abstract class ProductDatabase : RoomDatabase() {
     abstract fun productDao(): ProductDao
-
     companion object {
         @Volatile
         private var INSTANCE: ProductDatabase? = null
 
         fun getDatabase(context: Context): ProductDatabase {
+
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,

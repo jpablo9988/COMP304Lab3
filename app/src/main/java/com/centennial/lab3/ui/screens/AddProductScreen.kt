@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.centennial.lab3.data.Product
+import com.centennial.lab3.data.ProductEntity
 import com.centennial.lab3.viewmodel.ProductViewModel
 import java.util.Date
 
@@ -38,14 +38,14 @@ fun AddProductScreen(
         Button(
             onClick = {
                 if (name.isNotEmpty() && price.toDoubleOrNull() != null && price.toDouble() > 0) {
-                    val product = Product(
+                    val productEntity = ProductEntity(
                         id = (101..999).random(),
                         name = name,
                         price = price.toDouble(),
                         dateOfDelivery = Date(),
                         category = category
                     )
-                    viewModel.insert(product)
+                    viewModel.insert(productEntity)
                 }
             },
             modifier = Modifier.padding(top = 16.dp)

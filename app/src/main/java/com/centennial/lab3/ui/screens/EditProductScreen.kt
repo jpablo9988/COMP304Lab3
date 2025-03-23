@@ -10,7 +10,9 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.centennial.lab3.viewmodel.ProductViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 import java.util.*
 
@@ -18,7 +20,7 @@ import java.util.*
 @Composable
 fun EditProductScreen(
     productId: Int, // Passed via navigation
-    viewModel: ProductViewModel = viewModel,
+    viewModel: ProductViewModel = hiltViewModel(),
     onNavigateBack: () -> Unit // Function to navigate back after editing/deleting
 ) {
     val context = LocalContext.current

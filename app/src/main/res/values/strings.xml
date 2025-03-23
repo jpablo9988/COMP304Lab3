@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">JuanAmorocho_EvguenyAntsyferov_COMP304Sec001_Lab3</string>
+
+        <string name="app_name">Lab 3 - Product Manager with Room/SQlite</string>
+        <string name="add_product">Add Product</string>
+    <string name="edit_product">Edit Product</string>
+    <string name="back_button">Back</string>
 </resources>

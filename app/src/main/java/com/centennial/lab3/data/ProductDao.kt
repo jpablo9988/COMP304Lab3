@@ -6,18 +6,18 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ProductDao {
     @Query("SELECT * FROM products ORDER BY dateOfDelivery ASC")
-    fun getAllProducts(): Flow<List<Product>>
+    fun getAllProducts(): Flow<List<ProductEntity>>
 
     @Query("SELECT * FROM products WHERE isFavorite = 1")
-    fun getFavoriteProducts(): Flow<List<Product>>
+    fun getFavoriteProducts(): Flow<List<ProductEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertProduct(product: Product)
+    suspend fun insertProduct(productEntity: ProductEntity)
 
     @Update
-    suspend fun updateProduct(product: Product)
+    suspend fun updateProduct(productEntity: ProductEntity)
 
     @Delete
-    suspend fun deleteProduct(product: Product)
+    suspend fun deleteProduct(productEntity: ProductEntity)
 }
 
